@@ -1,0 +1,46 @@
+<html>  
+
+    <head>
+
+        <!-- The Email Confirmation URL should point to a page that contains an email confirmation script. 
+        Stitch will automatically append the user's token and tokenId to this URL in the email. 
+        The URL must include a scheme, such as http or https. Learn how to register users here. -->
+            <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
+
+            <script>
+            
+                const client = stitch.Stitch.initializeDefaultAppClient('testapplication-zhxbq');
+                // stitch.Stitch.initializeDefaultAppClient('testapplication-zhxbq');
+                // Parse the URL query parameters
+                const url = window.location.search;
+                const params = new URLSearchParams(url);
+
+                const token = params.get('token');
+
+                const tokenId = params.get('tokenId');
+
+
+                // Confirm the user's email/password account
+                const emailPassClient = client.auth
+                .getProviderClient(stitch.UserPasswordAuthProviderClient.factory);
+
+                emailPassClient.confirmUser(token, tokenId)
+                .then(() => 
+                console.log(window.location.replace("/dynamic/pages/login.html")))
+                .catch(err => {
+                    statusMsg.innerText = "Error registering new user: " + err;
+                });
+                
+                // return emailPassClient.confirmUser(token, tokenId);
+
+            </script>
+
+    </head>
+
+    <body>
+
+        <h2 id="statusMsg"></h2>
+
+    </body>
+
+</html>

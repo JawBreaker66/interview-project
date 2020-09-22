@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stratiphy</title>
+  <!-- materialize icons, css & js -->
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+Dafoe">
+  <link type="text/css" href="/dynamic/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" href="/dynamic/css/styles.css" rel="stylesheet">
+  <link href="//db.onlinewebfonts.com/c/50eafd25cbb5f88fe7bb5cc77421bb49?family=Freestyle+Script" rel="stylesheet" type="text/css"/>
+  <script src="https://kit.fontawesome.com/290e6d3280.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/dynamic/js/materialize.min.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <!-- ios support-->
+  <link rel="apple-touch-icon" href="/icons-96x96.png">
+  <meta name="apple-mobile-web-app-status-bae" content="#aa7700">
+  <meta name="theme-color" content="#FFE1C4">
+</head>
+<body class="grey lighten-4">
+
+  <!-- top nav -->
+  <!-- top nav -->
+  <header>
+    <nav class="nav-wrapper z-depth-0">
+      <div class="container">
+        <a id="title-text" class="navBarColour" href="/">Stratiphy</a>
+        <a href="#" class="sidenav-trigger right grey-text text-darken-1" data-target="side-menu">
+          <i class="material-icons navBarColour">menu</i>
+        </a>
+        <!-- desktop menu  -->
+        <ul class="right hide-on-med-and-down">
+
+          <li><a href="/dynamic/pages/strategies.html" class="waves-effect">My Strategies</a></li>
+          <li><a href="#strategy-types" class="waves-effect">About</a></li>
+          <li><a href="#products" class="waves-effect">Products</a></li>
+          <script>
+            if (client.auth.isLoggedIn){
+              document.write("<li><a href='javascript:logoutFunction()'>Logout</a></li>");
+            } else {
+              document.write("<li><a href='/dynamic/pages/login.html'>Login / Register</a></li>");
+            }
+          </script>
+          <li><a href="/dynamic/pages/contact.html" class="waves-effect"></li>
+
+        </ul>
+        <!-- mobile menu  -->
+        <ul class="sidenav" id="side-menu">
+          <li><a class="subheader">STRATIPHY</a></li>
+          <li><a href="/index.html" class="waves-effect">Home</a></li>
+          <li><a href="/dynamic/pages/about.html" class="waves-effect">About</a></li>
+          <li><a href="/dynamic/pages/strategies.html" class="waves-effect">My Strategies</a></li>
+          <script>
+            if (client.auth.isLoggedIn){
+              document.write("<li><a href='javascript:logoutFunction()'>Logout</a></li>");
+            } else {
+              document.write("<li><a href='/dynamic/pages/login.html'>Login / Register</a></li>");
+            }
+          </script>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li><a href="/dynamic/pages/contact.html" class="waves-effect">
+              <i class="material-icons">mail_outline</i>Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  <!-- content -->
+  <div class="container grey-text center">
+      <h5>OOPS!</h5>
+      <p>Currently you cannot view this page offline</p>
+      <a href="/" class="btn-small orange">Go to Homepage</a>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav({ edge: "right" });
+    })
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,264 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Stratiphy</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+Dafoe">
+    <link type="text/css" href="/dynamic/css/materialize.min.css" rel="stylesheet">
+    <link type="text/css" href="/dynamic/css/style-light.full.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//db.onlinewebfonts.com/c/50eafd25cbb5f88fe7bb5cc77421bb49?family=Freestyle+Script" rel="stylesheet" type="text/css"/>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" href="/dynamic/img/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bae" content="#aa7700">
+    <meta name="theme-color" content="#FFE1C4">
+    <script src="https://kit.fontawesome.com/290e6d3280.js" crossorigin="anonymous"></script>
+    <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
+    <script>
+
+        const client = stitch.Stitch.initializeDefaultAppClient('testapplication-zhxbq');
+
+        if (client.auth.hasRedirectResult()) {
+
+            client.auth.handleRedirectResult().then(user => {
+
+
+                redirect()
+
+            });
+
+        };
+
+        function redirect() {
+
+            let redirectUrl = localStorage.getItem('redirectUrl');
+
+            if (!redirectUrl) {
+                redirectUrl = "/dynamic/pages/strategies.html";
+            }
+
+            window.location.replace(redirectUrl);
+
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <script>
+        function logoutFunction() {
+            client.auth.logout().then(function () {
+                location = self.location;
+            });
+        };
+    </script>
+
+    <!-- top nav -->
+    <header>
+        <nav class="nav-wrapper z-depth-0">
+            <div class="container">
+                <a id="title-text" href="/">Stratiphy</a>
+                <a href="#" class="sidenav-trigger right grey-text text-darken-1" data-target="side-menu">
+                    <i class="material-icons">menu</i>
+                </a>
+
+                <ul class="sidenav" id="side-menu">
+                    <li><a class="subheader">STRATIPHY</a></li>
+                    <li><a href="/index.html" class="waves-effect">Home</a></li>
+                    <li><a href="/dynamic/pages/about.html" class="waves-effect">About</a></li>
+                    <script>
+                        if (client.auth.isLoggedIn) {
+                            document.write(`
+                    <li><a href="/dynamic/pages/strategies.html" class="waves-effect">My Strategies</a></li>
+                    <li><a href='javascript:logoutFunction()'>Logout</a></li>`);
+                        } else {
+                            document.write("<li><a href='/dynamic/pages/login.html'>Login / Register</a></li>");
+                        }
+                    </script>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+                    <li><a href="/dynamic/pages/contact.html" class="waves-effect">
+                            <i class="material-icons">mail_outline</i>Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container grey-text center">
+
+        <div class="login-box">
+            <h2 id="headerTag">Existing Account Login</h2>
+            <a href="#" class="social-button loginBtn loginBtn--facebook" id="facebook-connect"> <span>Connect with Facebook</span></a>
+            <a href="#" class="social-button loginBtn loginBtn--google" id="google-connect"> <span>Connect with Google</span></a>
+            <br>
+            <br>
+            <p>-- or --</p>
+            <br>
+    
+            <div class="row">
+                <!-- <div class="divider"></div> -->
+                <br>
+                <div class="input-field">
+                    <input placeholder="example@domain.com" id="emailAddress" type="text" class="validate">
+                    <label for="emailAddress">Email Address</label>
+                </div>
+                <div class="input-field">
+                    <input placeholder="" id="passwordInput" type="password" class="validate">
+                    <label for="passwordInput">Password</label>
+                </div>
+                <p>
+                    <label>
+                        <input type="checkbox" onclick="showPassword()" />
+                        <span>Show Password</span>
+                    </label>
+                </p>
+        
+                <div class="input-field center re-form">
+                    <button class="btn-small" id="emailPwd-register-btn">Register</button>
+                    <button class="btn-small" id="emailPwd-login-btn">Login</button>
+                </div>
+                <br>
+                <p><a id="emailPwd-reset-btn">I've forgotten my password</a></p>
+                <br>
+                <p><a id="resetMsg"></a></p>
+        
+            </div>
+        
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+</body>
+
+
+<script>
+
+    function showPassword() {
+        var x = document.getElementById("passwordInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    if (document.referrer.split("/")[4] != null) {
+        if (document.referrer.includes("confirmEmail.html")) {
+            headerTag.innerText = "Login to complete your registration.";
+        } else {
+            headerTag.innerText = "Welcome, please register or login.";
+        }
+    } else {
+        headerTag.innerText = "Welcome, please register or login.";
+    }
+
+</script>
+
+<script src="/dynamic/js/jquery.min.js"></script>
+<script type="text/javascript" src="/dynamic/js/materialize.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        $('.sidenav').sidenav({ edge: "right" });
+
+        $('#google-connect').click(function () {
+            document.getElementById("google-connect").innerHTML = "Logging in!";
+            let credential = new stitch.GoogleRedirectCredential();
+            client.auth.loginWithRedirect(credential);
+        })
+
+        $('#facebook-connect').click(function () {
+            document.getElementById("facebook-connect").innerHTML = "Logging in!";
+            if (!client.auth.isLoggedIn) {
+                const credential = new stitch.FacebookRedirectCredential();
+                client.auth.loginWithRedirect(credential);
+            }
+        })
+
+        $('#emailPwd-login-btn').click(function () {
+            var typedEmail = document.getElementById("emailAddress").value.toLowerCase();
+            var typedPassword = document.getElementById("passwordInput").value;
+            const credential = new stitch.UserPasswordCredential(typedEmail.toString(), typedPassword.toString())
+
+            client.auth.loginWithCredential(credential)
+                .then(authedUser => redirect())
+                .catch(err => {
+                    // console.error(`login failed with error: ${err}`);
+                    headerTag.innerText = "Incorrect email address or password."
+                    document.getElementById("passwordInput").value = ""
+                })
+        })
+
+        $('#emailPwd-register-btn').click(function () {
+            var typedEmail = document.getElementById("emailAddress").value.toLowerCase();
+            var typedPassword = document.getElementById("passwordInput").value;
+            var emailPasswordClient = client.auth
+                .getProviderClient(stitch.UserPasswordAuthProviderClient.factory);
+
+            emailPasswordClient.registerWithEmail(typedEmail.toString(), typedPassword.toString())
+                .then(() => {
+                    headerTag.innerText = "Confirmation email sent to " + typedEmail + ". Click the link to complete registration.";
+                    document.getElementById("passwordInput").value = ""
+                })
+                .catch(err => {
+                    if (err.message == "name already in use") {
+                        headerTag.innerText = "Email address already registered. Follow the link in the confirmation email, or reset the password."
+                    } else {
+                        headerTag.innerText = "Something went wrong. " + err.message;
+                        console.log("Error registering new user: ", err)
+                    }
+                    document.getElementById("passwordInput").value = ""
+                });
+
+        })
+
+        $('#emailPwd-reset-btn').click(function () {
+            document.getElementById("passwordInput").value = ""
+            var typedEmail = document.getElementById("emailAddress").value.toLowerCase();
+            if (typedEmail === "") {
+                alert("Enter email address.");
+            } else {
+                const emailPassClient = client.auth
+                    .getProviderClient(stitch.UserPasswordAuthProviderClient.factory);
+
+                emailPassClient.sendResetPasswordEmail(typedEmail).then(() => {
+                    resetMsg.innerText = "Successfully sent password reset email!";
+                }).catch(err => {
+                    resetMsg.innerText = "Something went wrong. " + err.message;
+                    console.log("Error sending password reset email: ", err);
+                });
+            }
+        })
+
+        $('#logout-btn').click(function () {
+            logoutFunction()
+        })
+
+
+    })
+
+
+</script>
+
+  <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7802294.js"></script>
+  <!-- End of HubSpot Embed Code -->
+
+</html>

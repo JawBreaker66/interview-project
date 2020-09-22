@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stratiphy</title>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Mr+Dafoe">
+  <link rel="stylesheet" id="styleslink" href="/dynamic/css/style-light.full.css">
+  <link type="text/css" href="/dynamic/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.material.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/4.0.0/material-components-web.min.css">
+    <link href="//db.onlinewebfonts.com/c/50eafd25cbb5f88fe7bb5cc77421bb49?family=Freestyle+Script" rel="stylesheet" type="text/css"/>
+    <script src="https://kit.fontawesome.com/290e6d3280.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+  <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
+  <script src="/dynamic/js/stitch.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+
+
+    <!-- top nav -->
+    <header>
+      <nav class="nav-wrapper z-depth-0">
+        <div class="container">
+          <a id="title-text" class="navBarColour" href="/">Stratiphy</a>
+          <a href="#" class="sidenav-trigger right grey-text text-darken-1" data-target="side-menu">
+            <i class="material-icons navBarColour">menu</i>
+          </a>
+          <!-- mobile menu  -->
+          <ul class="sidenav" id="side-menu">
+            <li><a class="subheader">STRATIPHY</a></li>
+            <!-- <li><a href="/index.html" class="waves-effect">Home</a></li> -->
+            <li><a href="/index.html" class="nav-header__link">Home<i class="solid fas fa-home"></i></a></li>
+            <!-- <li><a href="/dynamic/pages/about.html" class="waves-effect">About</a></li> -->
+            <li><a href="/dynamic/pages/about.html" class="nav-header__link">About<i class="solid fas fa-info-circle"></i></a></li>
+            <!-- <li><a href="/dynamic/pages/strategies.html" class="waves-effect">My Strategies</a></li> -->
+            <li><a href="/dynamic/pages/setup.html" class="nav-header__link">Get Started<i class="solid fas fa-play-circle"></i></a></li>
+            <li><a href="/dynamic/pages/strategies.html" class="nav-header__link">My Strategies<i class="solid fas fa-chess"></i></a></li>
+            <!-- <li><a href="" class="nav-header__link"><button class="btn --change-theme"><i class="solid fas fa-moon"></i></button><span class="nav-header__link-text">Dark</span></a></li> -->
+            <!-- <li><a href="" class="nav-header__link --change-theme sidenav-close"><i class="solid fas fa-moon"></i>Dark Mode</a></li> -->
+            <script>
+              if (client.auth.isLoggedIn) {
+                document.write("<li><a href='javascript:logoutFunction()'><i class='solid fas fa-sign-out-alt'></i>Logout</a></li>");
+              } else {
+                document.write("<li><a href='/dynamic/pages/login.html'><i class='solid fas fa-sign-in-alt'></i>Login / Register</a></li>");
+              }
+            </script>
+            <li>
+              <div class="divider"></div>
+            </li>
+            <!-- <li><a href="/dynamic/pages/contact.html" class="waves-effect"><i class="material-icons">mail_outline</i>Contact</a></li> -->
+            <li><a href="/dynamic/pages/contact.html" class="nav-header__link modal-trigger">Contact<i class="solid fas fa-envelope"></i></a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="container">
+      <h1>Oops...</h1>
+      <p class="flow-text">The email address you have used to register is not currently approved. Please contact communications@stratiphy.io for help with this issue.</p>  
+    </section>
+    <br><br>
+    <!-- footer  -->
+    <footer class="page-footer" style="  position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l12">
+             <p>We're an invite only service, so if would like to invite a friend to Stratiphy send us a note at
+              communications@stratiphy.io.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright greydarken-4">
+        <div class="container center-align">&copy; 2020 Stratiphy</div>
+      </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/dynamic/js/materialize.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('.sidenav').sidenav({ edge: "right" });
+        $('.modal').modal();
+      });
+    </script>
+
+
+
+</body>
+
+</html>
